@@ -4,6 +4,11 @@ type TodoItem {
   is_completed: Boolean!
 }
 
+input TodoItemInput {
+  task: String!
+  is_completed: Boolean!
+}
+
 type TodoList {
   items: [TodoItem!]!
 }
@@ -13,8 +18,8 @@ extend type Query {
 }
 
 extend type Mutation {
-  addTodo(input: TodoItem!): TodoItem!
-  updateTodoStatus(input: UpdateTodoInput): UpdateTodoStatusResponse!
+  addTodo(input: TodoItemInput!): TodoItem!
+  updateTodoStatus(input: UpdateTodoStatusInput): UpdateTodoStatusResponse!
   deleteTodoItem(input: DeleteTodoByIdInput): DeleteTodoByIdResponse!
 }
 
