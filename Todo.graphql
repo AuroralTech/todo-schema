@@ -1,0 +1,9 @@
+type TodoItem {
+  id: ID!
+  task: String!
+  is_completed: Boolean!
+}
+
+type TodoList {
+  items: [TodoItem!]!
+}
