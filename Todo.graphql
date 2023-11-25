@@ -7,3 +7,30 @@ type TodoItem {
 type TodoList {
   items: [TodoItem!]!
 }
+
+extend type Query {
+  todoList: TodoList!
+}
+
+extend type Mutation {
+  addTodo(input: TodoItem!): TodoItem!
+  updateTodoStatus(input: UpdateTodoInput): UpdateTodoStatusResponse!
+  deleteTodoItem(input: DeleteTodoByIdInput): DeleteTodoByIdResponse!
+}
+
+input UpdateTodoStatusInput {
+  id: String!
+  is_completed: Boolean!
+}
+
+type UpdateTodoStatusResponse {
+  success: Boolean!
+}
+
+input DeleteTodoByIdInput {
+  id: String!
+}
+
+type DeleteTodoByIdResponse {
+  success: Boolean!
+}
